@@ -22,6 +22,6 @@ const writtenPng = await readFile(join(out, "gta6-meme.png"));
 const sourcePng = await readFile(join(root, "gta6-meme.png"));
 if (!writtenPng.equals(sourcePng)) throw new Error("gta6-meme.png mismatch after copy");
 if (caption.trim().length === 0) throw new Error("caption.txt is empty");
-if (typeof post.post !== "string" || !post.post.startsWith("https://x.com/")) throw new Error("POST.json has no X post URL");
-console.log(`verified /output: gta6-meme.png ${writtenPng.length} bytes, caption ${caption.trim().length} chars, post ${post.post}`);
+if (typeof post.url !== "string" || !post.url.startsWith("https://x.com/")) throw new Error("POST.json has no X post URL");
+console.log(`verified /output: gta6-meme.png ${writtenPng.length} bytes, caption ${caption.trim().length} chars, post ${post.url}`);
 console.log("wrote /output/gta6-meme.png, /output/caption.txt, /output/POST.json");
